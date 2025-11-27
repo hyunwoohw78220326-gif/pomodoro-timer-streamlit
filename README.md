@@ -1,2 +1,2 @@
-# pomodoro-timer-streamlit
+streamlit
 streamlit-autorefresh
