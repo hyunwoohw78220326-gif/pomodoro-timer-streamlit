@@ -91,22 +91,12 @@ def daily_grade(total_sec):
     else:
         return 'A'
 
-def monthly_grade(daily_av_sec):
-    if daily_av_sec == 0:
-        return 'F'
-    elif daily_av_sec < 60:
-        return 'D'
-    elif daily_av_sec < 1800:
-        return 'C'
-    elif daily_av_sec < 3600:
-        return 'B'
-    else:
-        return 'A'
 
 # ------------------------------
 # 화면 구성
 # ------------------------------
-st.title("뽀모도로 과목 타이머 ⏱️")
+st.title("뽀모도로 과목 타이머 ⏱️
+노력은 배신하지 않는다")
 
 
 # 총 공부 시간
@@ -144,19 +134,6 @@ st.markdown("---")
 st.subheader("오늘 하루 평가")
 st.write(daily_grade(total_sec))
 
-# 월간 평균 평가
-st.markdown("---")
-st.subheader("월간 평균 평가")
-if len(st.session_state.day_records) > 0:
-    avg_sec = sum(st.session_state.day_records)/len(st.session_state.day_records)
-    st.write(monthly_grade(avg_sec))
-else:
-    st.write("기록 없음")
-
-# 오늘 기록 저장
-if st.button("오늘 기록 저장"):
-    st.session_state.day_records.append(total_sec)
-    st.success("오늘 공부 시간 기록 완료!")
 
 # ------------------------------
 # 타이머 업데이트
